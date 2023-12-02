@@ -21,7 +21,7 @@ namespace SpaceGame
 
         protected override void Initialize()
         {
-            Globals.Bounds = new(1280, 720);
+            Globals.Bounds = new(1920, 1080);
             _graphics.PreferredBackBufferWidth = Globals.Bounds.X;
             _graphics.PreferredBackBufferHeight = Globals.Bounds.Y;
             _graphics.ApplyChanges();
