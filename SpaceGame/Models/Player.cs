@@ -36,7 +36,6 @@ namespace SpaceGame.Models
                         MathHelper.Clamp(Position.X + (direction.X * Speed * Globals.TotalSeconds), 0, Globals.Bounds.X),
                         MathHelper.Clamp(Position.Y + (direction.Y * Speed * Globals.TotalSeconds), 0, Globals.Bounds.Y)
                 ); 
-
             }
 
             var toMousePointer = InputManager.MousePosition - Position;

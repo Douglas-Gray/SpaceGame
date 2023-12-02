@@ -17,7 +17,10 @@ namespace SpaceGame.Managers
             ProjectileManager.Init();
 
             _player = new(Globals.Content.Load<Texture2D>("player"), 
-                new (Globals.Bounds.X / 2, Globals.Bounds.Y /2)); 
+                new (Globals.Bounds.X / 2, Globals.Bounds.Y /2));
+
+            AlienManager.Init();
+            AlienManager.AddAlien(); 
 
         }
 
@@ -25,13 +28,15 @@ namespace SpaceGame.Managers
         {
             InputManager.Update(); 
             _player.Update();
+            AlienManager.Update(_player); 
             ProjectileManager.Update(); 
         }
 
         public void Draw()
         {
             _player.Draw();
-            ProjectileManager.Draw(); 
+            ProjectileManager.Draw();
+            AlienManager.Draw(); 
         }
  
     }
