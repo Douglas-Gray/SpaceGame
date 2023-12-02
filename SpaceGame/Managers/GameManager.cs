@@ -16,7 +16,8 @@ namespace SpaceGame.Managers
         {
             ProjectileManager.Init();
 
-            _player = new(Globals.Content.Load<Texture2D>("player"), new(50, 50)); 
+            _player = new(Globals.Content.Load<Texture2D>("player"), 
+                new (Globals.Bounds.X / 2, Globals.Bounds.Y /2)); 
 
         }
 
