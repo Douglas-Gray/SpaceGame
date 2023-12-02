@@ -10,9 +10,16 @@ namespace SpaceGame.Models
 {
     public class Alien : Sprite
     {
+        public int HP { get; private set; } 
         public Alien(Texture2D texture, Vector2 position) : base(texture, position)
         {
-            Speed = 100; 
+            Speed = 100;
+            HP = 1; 
+        }
+
+        public void TakeDamage(int damage)
+        {
+            HP -= damage; 
         }
 
         public void Update(Player player)

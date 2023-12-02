@@ -29,7 +29,7 @@ namespace SpaceGame.Managers
             InputManager.Update(); 
             _player.Update();
             AlienManager.Update(_player); 
-            ProjectileManager.Update(); 
+            ProjectileManager.Update(AlienManager.Aliens); 
         }
 
         public void Draw()

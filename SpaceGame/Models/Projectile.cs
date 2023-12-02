@@ -22,6 +22,11 @@ namespace SpaceGame.Models
             Lifespan = projectileData.Lifespan;
         }
 
+        public void Destroy()
+        {
+            Lifespan = 0; 
+        }
+
         public void Update()
         {
             Position += Direction * Speed * Globals.TotalSeconds;

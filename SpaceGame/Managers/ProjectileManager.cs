@@ -23,11 +23,23 @@ namespace SpaceGame.Managers
             Projectiles.Add(new(_texture, projectileData)); 
         }
 
-        public static void Update()
+        public static void Update(List<Alien> aliens)
         {
             foreach (var p in Projectiles)
             {
                 p.Update(); 
+
+                foreach (var a in aliens)
+                {
+                    if (a.HP <= 0) continue; 
+                    if((p.Position - a.Position).Length() < 16)
+                    {
+                        a.TakeDamage(1);
+                        p.Destroy();
+                        break; 
+                    }
+                }
+
             }
             Projectiles.RemoveAll((p) => p.Lifespan <= 0); 
         }

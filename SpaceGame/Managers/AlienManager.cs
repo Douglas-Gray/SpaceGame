@@ -67,6 +67,7 @@ namespace SpaceGame.Managers
             {
                 a.Update(player); 
             }
+            Aliens.RemoveAll((a) => a.HP <= 0); 
         }
 
         public static void Draw()
