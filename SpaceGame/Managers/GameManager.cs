@@ -14,6 +14,7 @@ namespace SpaceGame.Managers
         private readonly Player _player; 
         public GameManager()
         {
+            ProjectileManager.Init();
 
             _player = new(Globals.Content.Load<Texture2D>("player"), new(50, 50)); 
 
@@ -23,11 +24,13 @@ namespace SpaceGame.Managers
         {
             InputManager.Update(); 
             _player.Update();
+            ProjectileManager.Update(); 
         }
 
         public void Draw()
         {
-            _player.Draw(); 
+            _player.Draw();
+            ProjectileManager.Draw(); 
         }
  
     }
