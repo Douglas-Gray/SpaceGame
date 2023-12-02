@@ -14,6 +14,19 @@ namespace SpaceGame.Models
         public Player(Texture2D texture, Vector2 position) : base(texture, position)
         { }
 
+        private void Fire()
+        {
+            ProjectileData projectileData = new()
+            {
+                Position = Position,
+                Rotation = Rotation,
+                Lifespan = 2,
+                Speed = 600
+            };
+
+            ProjectileManager.AddProjectile(projectileData); 
+        }
+
         public void Update()
         {
             if (InputManager.Direction != Vector2.Zero)
@@ -25,6 +38,11 @@ namespace SpaceGame.Models
 
             var toMousePointer = InputManager.MousePosition - Position;
             Rotation = (float)Math.Atan2(toMousePointer.Y, toMousePointer.X); 
+
+            if (InputManager.MouseClicked)
+            {
+                Fire(); 
+            }
 
         }
     }
