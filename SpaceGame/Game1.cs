@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using SpaceGame.Managers;
 
 namespace SpaceGame
 {
@@ -8,26 +9,25 @@ namespace SpaceGame
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
-
-        Texture2D playerTexture;
-        Vector2 playerPosition;
-        float playerSpeed; 
+        private GameManager _gameManager; 
 
 
         public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
-            //Content.RootDirectory = "Content";
+            Content.RootDirectory = "Content";
             IsMouseVisible = true;
         }
 
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
+            Globals.Bounds = new(1280, 720);
+            _graphics.PreferredBackBufferWidth = Globals.Bounds.X;
+            _graphics.PreferredBackBufferHeight = Globals.Bounds.Y;
+            _graphics.ApplyChanges();
 
-            playerPosition = new Vector2(_graphics.PreferredBackBufferWidth / 2,
-            _graphics.PreferredBackBufferHeight / 2);
-            playerSpeed = 100f;
+            Globals.Content = Content;
+            _gameManager = new(); 
 
             base.Initialize();
         }
@@ -35,11 +35,7 @@ namespace SpaceGame
         protected override void LoadContent()
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-
-            playerTexture = Content.Load<Texture2D>("player");
-
-
-            // TODO: use this.Content to load your game content here
+            Globals.SpriteBatch = _spriteBatch;
         }
 
         protected override void Update(GameTime gameTime)
@@ -47,7 +43,8 @@ namespace SpaceGame
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // TODO: Add your update logic here
+            Globals.Update(gameTime);
+            _gameManager.Update();
 
             base.Update(gameTime);
         }
@@ -55,23 +52,11 @@ namespace SpaceGame
         protected override void Draw(GameTime gameTime)
         {
 
+            GraphicsDevice.Clear(Color.Black);
+
             _spriteBatch.Begin();
-
-            _spriteBatch.Draw(
-            playerTexture,
-            playerPosition,
-            null,
-            Color.White,
-            0f,
-            new Vector2(playerTexture.Width / 2, playerTexture.Height / 2),
-            Vector2.One,
-            SpriteEffects.None,
-            0f
-            );
-
+            _gameManager.Draw();
             _spriteBatch.End();
-
-            // TODO: Add your drawing code here
 
             base.Draw(gameTime);
         }
