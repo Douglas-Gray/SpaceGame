@@ -13,9 +13,9 @@ namespace SpaceGame.Managers
         private static Texture2D _texture;
         public static List<Projectile> Projectiles { get; } = new(); 
 
-        public static void Init()
+        public static void Init(Texture2D texture)
         {
-            _texture = Globals.Content.Load<Texture2D>("bullet"); 
+            _texture = texture; 
         }
 
         public static void AddProjectile(ProjectileData projectileData)
