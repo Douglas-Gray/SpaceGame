@@ -20,6 +20,7 @@ namespace SpaceGame.Managers
         public static bool MouseLeftDown { get; private set; }
         public static bool SpacePressed { get; private set; }
 
+
         public static void Update()
         {
             var keyboardState = Keyboard.GetState();
