@@ -11,7 +11,6 @@ namespace SpaceGame.Models
     public class Alien : Sprite
     {
         public int HP { get; private set; }
-        public int Speed { get; private set; }
         public Alien(Texture2D texture, Vector2 position, int speed) : base(texture, position)
         {
             Speed = speed; 
