@@ -44,7 +44,9 @@ namespace SpaceGame.Models
                 Weapon.Fire(this); 
             }
 
-            if (InputManager.SpacePressed) { Ability.Fire(this); }
+            if (InputManager.SpacePressed) {
+                Ability.Fire(this); 
+            }
 
             if (InputManager.MouseRightClicked)
             {

@@ -22,7 +22,7 @@ namespace SpaceGame.Managers
                 new (Globals.Bounds.X / 2, Globals.Bounds.Y /2));
 
             AlienManager.Init();
-            AlienManager.AddAlien(); 
+            AlienManager.AddAlienGreen(); 
 
         }
 

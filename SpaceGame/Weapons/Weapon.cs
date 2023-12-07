@@ -17,9 +17,6 @@ namespace SpaceGame.Weapons
         protected float reloadTime;
         public bool Reloading { get; private set; }
 
-
-
-
         protected Weapon()
         {
             cooldownleft = 0f;
