@@ -20,6 +20,11 @@ namespace SpaceGame.Managers
             _textureExplosion = Globals.Content.Load<Texture2D>("explosion");
         }
 
+        public static void Reset()
+        {
+            Projectiles.Clear();
+        }
+
         public static void AddProjectileBullet(ProjectileData projectileData)
         {
             Projectiles.Add(new(_texture, projectileData)); 

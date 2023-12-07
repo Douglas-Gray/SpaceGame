@@ -46,7 +46,7 @@ namespace SpaceGame.Models
                 Position = Position,
                 Rotation = Rotation - 2 * angleStep,
                 Lifespan = 0.15f,
-                Speed = 800
+                Speed = 500
             };
 
             for (int i = 0; i < 50; i++)

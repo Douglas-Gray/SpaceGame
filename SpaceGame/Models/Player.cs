@@ -15,14 +15,46 @@ namespace SpaceGame.Models
 
         public Weapon Weapon { get; set; } = new Blaster();
 
-        public Weapon Ability { get; set; } = new RingBlast(); 
+        public Weapon Ability { get; set; } = new RingBlast();
+
+        public bool Dead { get; private set; }
+
         //public Ability Ability { get; set; } = new RingBlast();
 
         public Player(Texture2D texture, Vector2 position) : base(texture, position)
         {
      
         }
-        public void Update()
+
+        public Player(Texture2D tex) : base(tex, GetStartPosition())
+        {
+            Reset();
+        }
+        private static Vector2 GetStartPosition()
+        {
+            return new(Globals.Bounds.X / 2, Globals.Bounds.Y / 2);
+        }
+        public void Reset()
+        {
+            Weapon = new Blaster();
+            Ability = new RingBlast();
+            Dead = false;
+            Position = GetStartPosition();
+        }
+
+        private void CheckDeath(List<Alien> aliens)
+        {
+            foreach (var a in aliens)
+            {
+                if (a.HP <= 0) continue;
+                if ((Position - a.Position).Length() < 50)
+                {
+                    Dead = true;
+                    break;
+                }
+            }
+        }
+        public void Update(List<Alien> aliens)
         {
 
             if (InputManager.Direction != Vector2.Zero)
@@ -53,6 +85,8 @@ namespace SpaceGame.Models
             {
                 Weapon.Reload(); 
             }
+
+            CheckDeath(aliens);
 
         }
     }

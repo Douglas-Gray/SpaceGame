@@ -26,9 +26,18 @@ namespace SpaceGame.Managers
             _textureAlienTurret = Globals.Content.Load<Texture2D>("turret");
             _spawnCooldown = 0.33f;
             _spawnTimeSeeker = _spawnCooldown;
+            _spawnTimeTurret = _spawnCooldown; 
             _random = new();
             _padding = _textureAlienSeeker.Width / 2;
         }
+
+        public static void Reset()
+        {
+            Aliens.Clear();
+            _spawnTimeTurret = _spawnCooldown;
+            _spawnTimeSeeker = _spawnCooldown; 
+        }
+
 
         private static Vector2 RandomPositionEdge()
         {

@@ -26,12 +26,22 @@ namespace SpaceGame.Managers
 
         }
 
+        public void Restart()
+        {
+            ProjectileManager.Reset();
+            AlienManager.Reset();
+            _player.Reset();
+        }
+
         public void Update()
         {
             InputManager.Update(); 
-            _player.Update();
+            _player.Update(AlienManager.Aliens);
             AlienManager.Update(_player); 
-            ProjectileManager.Update(AlienManager.Aliens); 
+            ProjectileManager.Update(AlienManager.Aliens);
+
+            if (_player.Dead) Restart();
+
         }
 
         public void Draw()
