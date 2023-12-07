@@ -28,7 +28,7 @@ namespace SpaceGame.Weapons
                 Speed = 600
             };
 
-            ProjectileManager.AddProjectile(pd); 
+            ProjectileManager.AddProjectileBullet(pd); 
         }
 
     }

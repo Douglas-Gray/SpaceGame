@@ -15,7 +15,7 @@ namespace SpaceGame.Managers
         public GameManager()
         {
             var texture = Globals.Content.Load<Texture2D>("bullet"); 
-            ProjectileManager.Init(texture);
+            ProjectileManager.Init();
             UIManager.Init(texture); 
 
             _player = new(Globals.Content.Load<Texture2D>("player"), 

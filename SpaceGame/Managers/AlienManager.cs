@@ -91,6 +91,7 @@ namespace SpaceGame.Managers
             foreach (var a in Aliens)
             {
                 a.Update(player); 
+
             }
             Aliens.RemoveAll((a) => a.HP <= 0); 
         }

@@ -11,16 +11,23 @@ namespace SpaceGame.Managers
     public static class ProjectileManager
     {
         private static Texture2D _texture;
+        private static Texture2D _textureExplosion;
         public static List<Projectile> Projectiles { get; } = new(); 
 
-        public static void Init(Texture2D texture)
+        public static void Init()
         {
-            _texture = texture; 
+            _texture = Globals.Content.Load<Texture2D>("bullet");
+            _textureExplosion = Globals.Content.Load<Texture2D>("explosion");
         }
 
-        public static void AddProjectile(ProjectileData projectileData)
+        public static void AddProjectileBullet(ProjectileData projectileData)
         {
             Projectiles.Add(new(_texture, projectileData)); 
+        }
+
+        public static void AddProjectileExplosion(ProjectileData projectileData)
+        {
+            Projectiles.Add(new(_textureExplosion, projectileData));
         }
 
         public static void Update(List<Alien> aliens)

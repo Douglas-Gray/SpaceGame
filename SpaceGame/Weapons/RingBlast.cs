@@ -33,7 +33,7 @@ namespace SpaceGame.Weapons
             for (int i = 0; i < 50; i++)
             {
                 pd.Rotation += angleStep;
-                ProjectileManager.AddProjectile(pd);
+                ProjectileManager.AddProjectileBullet(pd);
             }
         }
 
