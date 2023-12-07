@@ -20,12 +20,20 @@ namespace SpaceGame.Managers
 
         public static void Draw(Player player)
         {
-            Color colour = player.Weapon.Reloading ? Color.Red : Color.White; 
+            Color weaponColour = player.Weapon.Reloading ? Color.Red : Color.White; 
 
             for (int i = 0; i < player.Weapon.Ammo; i++)
             {
-                Vector2 position = new(0, i * _bulletTexture.Height * 2);
-                Globals.SpriteBatch.Draw(_bulletTexture, position, null, colour * 0.75f, 0, Vector2.Zero, 2, SpriteEffects.None, 1); 
+                Vector2 position = new(10, i * _bulletTexture.Height * 3);
+                Globals.SpriteBatch.Draw(_bulletTexture, position, null, weaponColour * 0.75f, 0, Vector2.Zero, 2, SpriteEffects.None, 1); 
+            }
+
+            Color abilityColour = player.Ability.Reloading ? Color.Red : Color.White;
+
+            for (int i = 0; i < player.Ability.Ammo; i++)
+            {
+                Vector2 position = new(Globals.Bounds.X - _bulletTexture.Width * 3, i * _bulletTexture.Height * 3) ;
+                Globals.SpriteBatch.Draw(_bulletTexture, position, null, abilityColour * 0.75f, 0, Vector2.Zero, 2, SpriteEffects.None, 1);
             }
         }
 

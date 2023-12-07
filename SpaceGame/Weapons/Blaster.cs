@@ -13,9 +13,9 @@ namespace SpaceGame.Weapons
         public Blaster()
         {
             cooldown = 0.1f;
-            maxAmmo = 30;
+            maxAmmo = 60;
             Ammo = maxAmmo;
-            reloadTime = 2f; 
+            reloadTime = 1f; 
         }
 
         protected override void CreateProjectiles(Player player)

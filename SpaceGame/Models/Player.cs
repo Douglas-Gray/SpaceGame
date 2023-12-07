@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using SpaceGame.Abilities;
 using SpaceGame.Managers;
 using SpaceGame.Weapons;
 using System;
@@ -13,7 +14,8 @@ namespace SpaceGame.Models
     public class Player : Sprite
     {
 
-        public Weapon Weapon { get; set; } = new Blaster(); 
+        public Weapon Weapon { get; set; } = new Blaster();
+        public Ability Ability { get; set; } = new RingBlast();
 
         public Player(Texture2D texture, Vector2 position) : base(texture, position)
         {
@@ -34,12 +36,15 @@ namespace SpaceGame.Models
             var toMousePointer = InputManager.MousePosition - Position;
             Rotation = (float)Math.Atan2(toMousePointer.Y, toMousePointer.X);
 
-            Weapon.Update(); 
+            Weapon.Update();
+            Ability.Update();
 
             if (InputManager.MouseLeftDown)
             {
                 Weapon.Fire(this); 
             }
+
+            if (InputManager.SpacePressed) { Ability.Fire(this); }
 
             if (InputManager.MouseRightClicked)
             {
