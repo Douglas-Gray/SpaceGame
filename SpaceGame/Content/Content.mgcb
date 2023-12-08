@@ -61,12 +61,6 @@
 /processorParam:TextureFormat=Color
 /build:button.png
 
-#begin energyGunSfx.mp3
-/importer:Mp3Importer
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:energyGunSfx.mp3
-
 #begin explosion.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -78,12 +72,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:explosion.png
-
-#begin explosionSfx.mp3
-/importer:Mp3Importer
-/processor:SoundEffectProcessor
-/processorParam:Quality=Best
-/build:explosionSfx.mp3
 
 #begin font.spritefont
 /importer:FontDescriptionImporter
@@ -103,6 +91,36 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:player.png
+
+#begin SFX/beamAlien.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/beamAlien.mp3
+
+#begin SFX/dark-spectrometer.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:SFX/dark-spectrometer.mp3
+
+#begin SFX/energyGunSfx.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/energyGunSfx.mp3
+
+#begin SFX/explosionSfx.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:SFX/explosionSfx.mp3
+
+#begin SFX/space-chillout.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:SFX/space-chillout.mp3
 
 #begin turret.png
 /importer:TextureImporter

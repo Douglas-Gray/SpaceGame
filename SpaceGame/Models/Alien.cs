@@ -53,7 +53,7 @@ namespace SpaceGame.Models
         {
             const float angleStep = (float)(Math.PI / 16);
 
-            SoundEffect soundEffect = Globals.Content.Load<SoundEffect>("explosionSfx");
+            SoundEffect soundEffect = Globals.Content.Load<SoundEffect>("SFX/explosionSfx");
 
             soundEffect.Play();
 

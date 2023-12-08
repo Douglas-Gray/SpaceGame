@@ -25,7 +25,7 @@ namespace SpaceGame.Weapons
         {
             List<SoundEffect> soundEffects = new List<SoundEffect>();
         
-            soundEffects.Add(Globals.Content.Load<SoundEffect>("energyGunSfx"));
+            soundEffects.Add(Globals.Content.Load<SoundEffect>("SFX/energyGunSfx"));
 
             soundEffects[0].Play();
 
