@@ -10,15 +10,15 @@ namespace SpaceGame.Managers
 
         private readonly Player _player;
         private readonly MenuManager menuManager = new();
-        private bool gameStart = false; 
+        private bool gameStart = false;
+        private SpriteFont Font { get; }
 
         public GameManager()
         {
-            var ButtonTexture = Globals.Content.Load<Texture2D>("button"); 
-
-            menuManager.AddButton(new(Globals.Bounds.X / 2 - ButtonTexture.Width / 2, Globals.Bounds.Y / 2)).OnClick += Action;
-
+            var ButtonTexture = Globals.Content.Load<Texture2D>("button");
             var texture = Globals.Content.Load<Texture2D>("bullet");
+
+            menuManager.AddButton(new(Globals.Bounds.X / 2 - ButtonTexture.Width / 2, Globals.Bounds.Y / 2), "Start").OnClick += Action;
 
             _player = new(Globals.Content.Load<Texture2D>("player"), 
                 new (Globals.Bounds.X / 2, Globals.Bounds.Y /2));

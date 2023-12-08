@@ -25,9 +25,9 @@ namespace SpaceGame.Menu
             Font = Globals.Content.Load<SpriteFont>("font");
         }
 
-        public Button AddButton(Vector2 pos)
+        public Button AddButton(Vector2 pos, string buttonText)
         {
-            Button b = new(ButtonTexture, pos);
+            Button b = new(ButtonTexture, pos, buttonText);
             _buttons.Add(b);
 
             return b;
@@ -48,7 +48,7 @@ namespace SpaceGame.Menu
                 item.Draw();
             }
 
-            Globals.SpriteBatch.DrawString(Font, Counter.ToString(), new(10, 10), Color.Black);
+            //Globals.SpriteBatch.DrawString(Font, Counter.ToString(), new(10, 10), Color.Black);
         }
 
     }
