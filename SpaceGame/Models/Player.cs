@@ -1,10 +1,13 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Audio;
+using Microsoft.Xna.Framework.Content; 
 using Microsoft.Xna.Framework.Graphics;
 using SpaceGame.Managers;
 using SpaceGame.Weapons;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -81,7 +84,7 @@ namespace SpaceGame.Models
 
             if (InputManager.MouseLeftDown)
             {
-                Weapon.Fire(this); 
+                Weapon.Fire(this);
             }
 
             if (InputManager.SpacePressed) {

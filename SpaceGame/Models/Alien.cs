@@ -4,6 +4,8 @@ using System;
 using SpaceGame.Managers;
 using SpaceGame.AlienWeapons;
 using SpaceGame.Weapons;
+using Microsoft.Xna.Framework.Audio;
+using System.Collections.Generic;
 
 namespace SpaceGame.Models
 {
@@ -50,6 +52,10 @@ namespace SpaceGame.Models
         public void Explode()
         {
             const float angleStep = (float)(Math.PI / 16);
+
+            SoundEffect soundEffect = Globals.Content.Load<SoundEffect>("explosionSfx");
+
+            soundEffect.Play();
 
             ProjectileData pd = new()
             {

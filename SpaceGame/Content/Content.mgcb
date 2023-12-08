@@ -61,6 +61,12 @@
 /processorParam:TextureFormat=Color
 /build:button.png
 
+#begin energyGunSfx.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:energyGunSfx.mp3
+
 #begin explosion.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -72,6 +78,12 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:explosion.png
+
+#begin explosionSfx.mp3
+/importer:Mp3Importer
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:explosionSfx.mp3
 
 #begin font.spritefont
 /importer:FontDescriptionImporter
