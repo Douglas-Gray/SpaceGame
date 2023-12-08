@@ -78,12 +78,12 @@ namespace SpaceGame.Managers
 
         public static void AddAlienGreen()
         {
-            Aliens.Add(new(_textureAlienSeeker, RandomPositionEdge(), 100)); 
+            Aliens.Add(new(_textureAlienSeeker, RandomPositionEdge(), 100, "seeker")); 
         }
 
         public static void AddAlienTurret(Player player)
         {
-            Aliens.Add(new(_textureAlienTurret, RandomPositionInside(player), 0));
+            Aliens.Add(new(_textureAlienTurret, RandomPositionInside(player), 0, "turret"));
         }
 
         public static void Update(Player player)

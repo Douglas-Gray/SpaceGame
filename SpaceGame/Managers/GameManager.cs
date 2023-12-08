@@ -62,7 +62,7 @@ namespace SpaceGame.Managers
             }
             else
             {
-                _player.Update(AlienManager.Aliens);
+                _player.Update(AlienManager.Aliens, ProjectileManager.AlienProjectiles);
                 ScoreManager.Update(AlienManager.Aliens);
                 AlienManager.Update(_player);
                 ProjectileManager.Update(AlienManager.Aliens);

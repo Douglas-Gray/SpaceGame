@@ -40,7 +40,7 @@ namespace SpaceGame.Models
             Position = GetStartPosition();
         }
 
-        private void CheckDeath(List<Alien> aliens)
+        private void CheckDeath(List<Alien> aliens, List<Projectile> projectiles)
         {
             foreach (var a in aliens)
             {
@@ -51,8 +51,17 @@ namespace SpaceGame.Models
                     break;
                 }
             }
+
+            foreach (var p in projectiles)
+            {
+                if ((Position - p.Position).Length() < 24)
+                {
+                    Dead = true;
+                    break;
+                }
+            }
         }
-        public void Update(List<Alien> aliens)
+        public void Update(List<Alien> aliens, List<Projectile> projectiles)
         {
 
             if (InputManager.Direction != Vector2.Zero)
@@ -84,7 +93,7 @@ namespace SpaceGame.Models
                 Weapon.Reload(); 
             }
 
-            CheckDeath(aliens);
+            CheckDeath(aliens, projectiles);
 
         }
     }

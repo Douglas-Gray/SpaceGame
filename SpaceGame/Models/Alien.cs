@@ -2,16 +2,25 @@
 using Microsoft.Xna.Framework; 
 using System;
 using SpaceGame.Managers;
+using SpaceGame.AlienWeapons;
+using SpaceGame.Weapons;
 
 namespace SpaceGame.Models
 {
     public class Alien : Sprite
     {
         public int HP { get; private set; }
-        public Alien(Texture2D texture, Vector2 position, int speed) : base(texture, position)
+        public string Type { get; private set; }
+
+        //public AlienWeapon { get; set; } = new AlienBlaster();
+
+        public AlienWeapon AlienWeapon { get; set; } = new AlienBlaster();
+
+        public Alien(Texture2D texture, Vector2 position, int speed, string type) : base(texture, position)
         {
             Speed = speed; 
             HP = 1; 
+            Type = type;
         }
 
         public void TakeDamage(int damage)
@@ -28,9 +37,17 @@ namespace SpaceGame.Models
             {
                 var dir = Vector2.Normalize(toPlayer);
                 Position += dir * Speed * Globals.TotalSeconds;
+
             }
 
             if (HP <= 0) { Explode();}
+
+            if (Type.Equals("turret"))
+            {
+                AlienWeapon.Fire(this);
+                AlienWeapon.Update();
+            }
+
         }
 
         public void Explode()
