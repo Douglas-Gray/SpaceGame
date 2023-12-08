@@ -16,7 +16,8 @@ namespace SpaceGame.Menu
     {
         private Texture2D ButtonTexture { get; }
         private SpriteFont Font { get; }
-        private readonly List<Button> _buttons = new();
+        public List<Button> _buttons = new();
+        public List<Message> _messages = new();
         public int Counter { get; set; }
 
         public MenuManager()
@@ -33,12 +34,24 @@ namespace SpaceGame.Menu
             return b;
         }
 
+        public Message AddMessage(Vector2 pos, string messageText)
+        {
+            Message m = new(pos, messageText);
+            _messages.Add(m);
+
+            return m;
+        }
         public void Update()
         {
             foreach (var item in _buttons)
             {
                 item.Update();
             }
+        }
+
+        public void Reset()
+        {
+            _messages.Clear(); 
         }
 
         public void Draw()
@@ -48,8 +61,11 @@ namespace SpaceGame.Menu
                 item.Draw();
             }
 
-            //Globals.SpriteBatch.DrawString(Font, Counter.ToString(), new(10, 10), Color.Black);
-        }
+            foreach (var item in _messages)
+            {
+                item.Draw();
+            }
 
+        }
     }
 }

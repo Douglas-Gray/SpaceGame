@@ -6,16 +6,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace SpaceGame.Managers
 {
     public static class ScoreManager
     {
-        public static int Score { get; set; }
+        
         private static SpriteFont _font;
         private static Vector2 _textPosition;
         private static string _playerScore;
-
+        private static int _score; 
+ 
         public static void Init()
         {
             _font = Globals.Content.Load<SpriteFont>("font");
@@ -23,7 +25,7 @@ namespace SpaceGame.Managers
 
         public static void Reset()
         {
-            Score = 0; 
+           _score = 0;
         }
         public static void Update(List<Alien> aliens)
         {
@@ -32,12 +34,12 @@ namespace SpaceGame.Managers
             {
                 if (a.HP <= 0)
                 {
-                    Score += 1;
+                    _score += 1;
                 }    
             }
 
-            _playerScore = Score.ToString(); 
-            var x = _font.MeasureString(Score.ToString()).X / 2;
+            _playerScore = _score.ToString(); 
+            var x = _font.MeasureString(_score.ToString()).X / 2;
             _textPosition = new(Globals.Bounds.X + x - Globals.Bounds.X / 2, 14);
         }
 
@@ -45,5 +47,11 @@ namespace SpaceGame.Managers
         {
             Globals.SpriteBatch.DrawString(_font, _playerScore, _textPosition, Color.White);
         }
+
+        public static int ReturnScore()
+        {
+            return _score; 
+        }
+
     }
 }

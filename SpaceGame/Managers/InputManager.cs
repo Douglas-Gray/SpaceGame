@@ -24,8 +24,6 @@ namespace SpaceGame.Managers
 
         public static void Update()
         {
-
-
             var keyboardState = Keyboard.GetState();
             var mouseState = Mouse.GetState();
 
@@ -49,5 +47,4 @@ namespace SpaceGame.Managers
             _lastKeyboardState = keyboardState;
         }
     }
-
 }

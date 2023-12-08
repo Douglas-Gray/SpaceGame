@@ -19,8 +19,6 @@ namespace SpaceGame.Models
 
         public bool Dead { get; private set; }
 
-        //public Ability Ability { get; set; } = new RingBlast();
-
         public Player(Texture2D texture, Vector2 position) : base(texture, position)
         {
      

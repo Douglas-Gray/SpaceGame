@@ -13,9 +13,9 @@ namespace SpaceGame.Managers
     {
         private static Texture2D _bulletTexture; 
 
-        public static void Init(Texture2D texture)
+        public static void Init()
         {
-            _bulletTexture = texture; 
+          _bulletTexture = Globals.Content.Load<Texture2D>("bullet");
         }
 
         public static void Draw(Player player)
