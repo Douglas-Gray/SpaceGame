@@ -12,14 +12,11 @@ namespace SpaceGame.AlienWeapons
         protected float cooldown;
         protected float cooldownleft;
         protected int maxAmmo;
-        //public int Ammo { get; protected set; }
         protected float reloadTime;
-        //public bool Reloading { get; private set; }
 
         protected AlienWeapon()
         {
             cooldownleft = 0f;
-            //Reloading = false;
         }
 
         protected abstract void CreateProjectiles(Alien alien);

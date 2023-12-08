@@ -53,7 +53,7 @@ namespace SpaceGame.Managers
                 foreach (var a in aliens)
                 {
                     if (a.HP <= 0) continue; 
-                    if((p.Position - a.Position).Length() < 8)
+                    if((p.Position - a.Position).Length() < a.texture.Width)
                     {
                         a.TakeDamage(1);
                         p.Destroy();

@@ -45,7 +45,7 @@ namespace SpaceGame.Models
             foreach (var a in aliens)
             {
                 if (a.HP <= 0) continue;
-                if ((Position - a.Position).Length() < 16)
+                if ((Position - a.Position).Length() < texture.Width - a.texture.Width)
                 {
                     Dead = true;
                     break;
@@ -54,7 +54,7 @@ namespace SpaceGame.Models
 
             foreach (var p in projectiles)
             {
-                if ((Position - p.Position).Length() < 24)
+                if ((Position - p.Position).Length() < texture.Width - p.texture.Width)
                 {
                     Dead = true;
                     break;

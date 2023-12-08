@@ -20,7 +20,7 @@ namespace SpaceGame.Weapons
 
         protected override void CreateProjectiles(Player player)
         {
-            const float angleStep = (float)(Math.PI / 16);
+            const float angleStep = (float)(Math.PI / 32);
 
             ProjectileData pd = new()
             {
@@ -30,7 +30,7 @@ namespace SpaceGame.Weapons
                 Speed = 800
             };
 
-            for (int i = 0; i < 50; i++)
+            for (int i = 0; i < 80; i++)
             {
                 pd.Rotation += angleStep;
                 ProjectileManager.AddProjectileBullet(pd);

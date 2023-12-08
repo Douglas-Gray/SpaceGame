@@ -11,9 +11,6 @@ namespace SpaceGame.Models
     {
         public int HP { get; private set; }
         public string Type { get; private set; }
-
-        //public AlienWeapon { get; set; } = new AlienBlaster();
-
         public AlienWeapon AlienWeapon { get; set; } = new AlienBlaster();
 
         public Alien(Texture2D texture, Vector2 position, int speed, string type) : base(texture, position)

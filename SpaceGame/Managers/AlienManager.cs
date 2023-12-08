@@ -99,7 +99,7 @@ namespace SpaceGame.Managers
 
             if(_spawnTimeTurret < 0)
             {
-                _spawnTimeTurret += _spawnCooldown * 10;
+                _spawnTimeTurret += _spawnCooldown * 12;
                 AddAlienTurret(player);
             }
 

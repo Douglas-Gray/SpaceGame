@@ -6,8 +6,9 @@ namespace SpaceGame.Models
 {
     public class Sprite
     {
-        protected readonly Texture2D texture;
+        
         protected readonly Vector2 origin;
+        public Texture2D texture { get; set; }
         public Vector2 Position { get; set; }
         public int Speed { get; set; }
         public float Rotation { get; set; }
