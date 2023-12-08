@@ -47,7 +47,7 @@ namespace SpaceGame.Models
             foreach (var a in aliens)
             {
                 if (a.HP <= 0) continue;
-                if ((Position - a.Position).Length() < 50)
+                if ((Position - a.Position).Length() < 16)
                 {
                     Dead = true;
                     break;

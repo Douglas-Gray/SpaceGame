@@ -60,13 +60,19 @@ namespace SpaceGame.Managers
             return position; 
         }
 
-        private static Vector2 RandomPositionInside()
+        private static Vector2 RandomPositionInside(Player player)
         {
             Vector2 position = new();
 
-                position.X = (int)_random.NextInt64(0, Globals.Bounds.X);
-                position.Y = (int)_random.NextInt64(0, Globals.Bounds.Y); 
+            position.X = (int)_random.NextInt64(0, Globals.Bounds.X);
+            position.Y = (int)_random.NextInt64(0, Globals.Bounds.Y);
 
+            while ( (position.X < player.Position.X + 70 && position.X > player.Position.X - 70) || (position.Y < player.Position.Y + 70 && position.Y > player.Position.Y - 70) )
+            { 
+                position.X = (int)_random.NextInt64(0, Globals.Bounds.X);
+                position.Y = (int)_random.NextInt64(0, Globals.Bounds.Y);
+            }
+          
             return position;
         }
 
@@ -75,9 +81,9 @@ namespace SpaceGame.Managers
             Aliens.Add(new(_textureAlienSeeker, RandomPositionEdge(), 100)); 
         }
 
-        public static void AddAlienTurret()
+        public static void AddAlienTurret(Player player)
         {
-            Aliens.Add(new(_textureAlienTurret, RandomPositionInside(), 0));
+            Aliens.Add(new(_textureAlienTurret, RandomPositionInside(player), 0));
         }
 
         public static void Update(Player player)
@@ -94,7 +100,7 @@ namespace SpaceGame.Managers
             if(_spawnTimeTurret < 0)
             {
                 _spawnTimeTurret += _spawnCooldown * 10;
-                AddAlienTurret();
+                AddAlienTurret(player);
             }
 
             foreach (var a in Aliens)

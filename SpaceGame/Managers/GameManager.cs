@@ -1,10 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using SpaceGame.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace SpaceGame.Managers
 {
@@ -14,7 +10,9 @@ namespace SpaceGame.Managers
         private readonly Player _player; 
         public GameManager()
         {
-            var texture = Globals.Content.Load<Texture2D>("bullet"); 
+            var texture = Globals.Content.Load<Texture2D>("bullet");
+
+            ScoreManager.Init(); 
             ProjectileManager.Init();
             UIManager.Init(texture); 
 
@@ -28,6 +26,7 @@ namespace SpaceGame.Managers
 
         public void Restart()
         {
+            ScoreManager.Reset(); 
             ProjectileManager.Reset();
             AlienManager.Reset();
             _player.Reset();
@@ -37,17 +36,20 @@ namespace SpaceGame.Managers
         {
             InputManager.Update(); 
             _player.Update(AlienManager.Aliens);
+
+            ScoreManager.Update(AlienManager.Aliens); 
+
             AlienManager.Update(_player); 
             ProjectileManager.Update(AlienManager.Aliens);
 
             if (_player.Dead) Restart();
-
         }
 
         public void Draw()
         {
             _player.Draw();
             ProjectileManager.Draw();
+            ScoreManager.Draw(); 
             AlienManager.Draw();
             UIManager.Draw(_player); 
         }
