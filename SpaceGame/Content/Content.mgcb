@@ -13,6 +13,12 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin ../../../../../Documents/GameAssets/space-chillout.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:../../../../../Documents/GameAssets/space-chillout.mp3;Music/space-chillout.mp3
+
 #begin alienBullet.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -92,6 +98,42 @@
 /processorParam:TextureFormat=Color
 /build:Icons/RingBlastIcon.png
 
+#begin Music/caves-of-dawn.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Music/caves-of-dawn.mp3
+
+#begin Music/dark-spectrometer.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Music/dark-spectrometer.mp3
+
+#begin Music/guitar.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Music/guitar.mp3
+
+#begin Music/in-space.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Music/in-space.mp3
+
+#begin Music/outer-reaches-of-space.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Music/outer-reaches-of-space.mp3
+
+#begin Music/space-chillout.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Music/space-chillout.mp3
+
 #begin player.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -110,12 +152,6 @@
 /processorParam:Quality=Best
 /build:SFX/beamAlien.mp3
 
-#begin SFX/dark-spectrometer.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:SFX/dark-spectrometer.mp3
-
 #begin SFX/energyGunSfx.mp3
 /importer:Mp3Importer
 /processor:SoundEffectProcessor
@@ -127,12 +163,6 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:SFX/explosionSfx.mp3
-
-#begin SFX/space-chillout.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
-/processorParam:Quality=Best
-/build:SFX/space-chillout.mp3
 
 #begin turret.png
 /importer:TextureImporter

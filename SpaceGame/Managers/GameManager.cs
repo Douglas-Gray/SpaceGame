@@ -1,9 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
-using Microsoft.Xna.Framework.Media;
 using SpaceGame.Menu;
 using SpaceGame.Models;
 using System;
-using System.Xml.Schema;
 
 namespace SpaceGame.Managers
 {
@@ -14,8 +12,6 @@ namespace SpaceGame.Managers
         private readonly MenuManager menuManager = new();
         private bool gameStart = false;
         private int score;
-        private Song titleTheme = Globals.Content.Load<Song>("SFX/dark-spectrometer");
-        private Song gameTheme = Globals.Content.Load<Song>("SFX/space-chillout");
 
         public GameManager()
         {
@@ -25,23 +21,23 @@ namespace SpaceGame.Managers
             menuManager.AddButton(new(Globals.Bounds.X / 2, Globals.Bounds.Y / 2), "Start").OnClick += Action;
             menuManager.AddMessage(new(Globals.Bounds.X / 2, Globals.Bounds.Y / 2 - 100), $"S P A C E  G A M E");
 
-            MediaPlayer.Play(titleTheme);
-
             _player = new(Globals.Content.Load<Texture2D>("player"), 
                 new (Globals.Bounds.X / 2, Globals.Bounds.Y /2));
 
+            SoundManager.Init(); 
             ScoreManager.Init();
             ProjectileManager.Init();
             UIManager.Init();
             AlienManager.Init();
             AlienManager.AddAlienGreen();
+
+            SoundManager.PlayMusic(gameStart);
         }
 
         public void Action(object sender, EventArgs e)
         {
             gameStart = true;
-
-            MediaPlayer.Play(gameTheme);
+            SoundManager.PlayMusic(gameStart);
         }
 
         public void Restart()
@@ -50,9 +46,9 @@ namespace SpaceGame.Managers
             menuManager.AddMessage(new(Globals.Bounds.X / 2, Globals.Bounds.Y / 2 - 200), $"S P A C E  G A M E");
             menuManager.AddMessage(new(Globals.Bounds.X / 2, Globals.Bounds.Y / 2 - 100), $"Lights Out... Score: {score}");
 
-            MediaPlayer.Play(titleTheme);
-
             gameStart = false;
+
+            SoundManager.PlayMusic(gameStart);
 
             ScoreManager.Reset(); 
             ProjectileManager.Reset();
