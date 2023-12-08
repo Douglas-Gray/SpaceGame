@@ -15,6 +15,8 @@ namespace SpaceGame.Managers
         private static Vector2 _direction;
         public static Vector2 Direction => _direction;
         public static Vector2 MousePosition => Mouse.GetState().Position.ToVector2();
+
+        public static Rectangle MouseCursor { get; set; }
         public static bool MouseClicked { get; private set; }
         public static bool MouseRightClicked { get; private set; }
         public static bool MouseLeftDown { get; private set; }
@@ -22,6 +24,8 @@ namespace SpaceGame.Managers
 
         public static void Update()
         {
+
+
             var keyboardState = Keyboard.GetState();
             var mouseState = Mouse.GetState();
 
@@ -30,6 +34,9 @@ namespace SpaceGame.Managers
             if (keyboardState.IsKeyDown(Keys.S)) _direction.Y++;
             if (keyboardState.IsKeyDown(Keys.A)) _direction.X--;
             if (keyboardState.IsKeyDown(Keys.D)) _direction.X++;
+            
+            
+            MouseCursor = new(Mouse.GetState().Position, new(1, 1));
 
             MouseLeftDown = mouseState.LeftButton == ButtonState.Pressed;
             MouseClicked = MouseLeftDown && (_lastMouseState.LeftButton == ButtonState.Released);
