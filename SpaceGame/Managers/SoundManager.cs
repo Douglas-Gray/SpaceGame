@@ -29,9 +29,6 @@ namespace SpaceGame.Managers
             gameSongs.Add(Globals.Content.Load<Song>("Music/outer-reaches-of-space"));
             gameSongs.Add(Globals.Content.Load<Song>("Music/in-space"));
             gameSongs.Add(Globals.Content.Load<Song>("Music/guitar"));
-
-            MediaPlayer.IsRepeating = true;
-
         }
 
         public static void PlayMusic(bool gameStart)
@@ -44,6 +41,8 @@ namespace SpaceGame.Managers
             {
                 MediaPlayer.Play(titleSongs[_random.Next(0, titleSongs.Count)]);
             }
+
+            MediaPlayer.IsRepeating = true;
         }
         public static void Reset()
         {

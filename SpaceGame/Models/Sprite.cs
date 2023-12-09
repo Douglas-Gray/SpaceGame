@@ -21,9 +21,9 @@ namespace SpaceGame.Models
             origin = new(spriteTexture.Width / 2, spriteTexture.Height / 2);
         }
 
-        public virtual void Draw()
+        public virtual void Draw(Color color)
         {
-            Globals.SpriteBatch.Draw(texture, Position, null, Color.White, Rotation, origin, 1, SpriteEffects.None, 1); 
+            Globals.SpriteBatch.Draw(texture, Position, null, color, Rotation, origin, 1, SpriteEffects.None, 1); 
         }
 
     }

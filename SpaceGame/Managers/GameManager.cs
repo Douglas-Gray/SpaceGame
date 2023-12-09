@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using SpaceGame.Menu;
 using SpaceGame.Models;
 using System;
@@ -84,7 +85,7 @@ namespace SpaceGame.Managers
             }
             else
             {
-                _player.Draw();
+                _player.Draw(Color.White);
                 ProjectileManager.Draw();
                 AlienManager.Draw();
                 ScoreManager.Draw();

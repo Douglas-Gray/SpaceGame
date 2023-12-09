@@ -15,6 +15,8 @@ namespace SpaceGame.Models
         public string Type { get; private set; }
         public AlienWeapon AlienWeapon { get; set; } = new AlienBlaster();
 
+        public static Random random;
+
         public Alien(Texture2D texture, Vector2 position, int speed, string type) : base(texture, position)
         {
             Speed = speed; 
@@ -51,7 +53,9 @@ namespace SpaceGame.Models
 
         public void Explode()
         {
-            const float angleStep = (float)(Math.PI / 16);
+            random = new();
+
+            const float angleStep = (float)(Math.PI / 32);
 
             SoundEffect soundEffect = Globals.Content.Load<SoundEffect>("SFX/explosionSfx");
 
@@ -61,12 +65,12 @@ namespace SpaceGame.Models
             {
                 Position = Position,
                 Rotation = Rotation - 2 * angleStep,
-                Lifespan = 0.15f,
-                Speed = 500
+                Lifespan = 0.70f,
+                Speed = 400
             };
-
-            for (int i = 0; i < 50; i++)
+            for (int i = 0; i < 80; i++)
             {
+                pd.Speed = random.Next(20, 100);
                 pd.Rotation += angleStep;
                 ProjectileManager.AddProjectileExplosion(pd);
             }

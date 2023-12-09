@@ -1,9 +1,9 @@
-﻿using Microsoft.Xna.Framework.Graphics;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using SpaceGame.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -115,7 +115,7 @@ namespace SpaceGame.Managers
         {
             foreach (var a in Aliens)
             {
-                a.Draw(); 
+                a.Draw(Color.White);
             }
         }
     }
