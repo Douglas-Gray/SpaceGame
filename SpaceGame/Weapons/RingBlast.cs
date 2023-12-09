@@ -27,7 +27,8 @@ namespace SpaceGame.Weapons
                 Position = player.Position,
                 Rotation = player.Rotation - 2 * angleStep,
                 Lifespan = 2f,
-                Speed = 800
+                Speed = 800,
+                ProjectileType = "ringblast"
             };
 
             for (int i = 0; i < 80; i++)

@@ -12,6 +12,7 @@ namespace SpaceGame.Managers
     public static class ProjectileManager
     {
         private static Texture2D _textureBullet;
+        private static Texture2D _textureLaser;
         private static Texture2D _textureAlienBullet;
         private static Texture2D _textureExplosion;
         public static List<Projectile> Projectiles { get; } = new();
@@ -24,6 +25,7 @@ namespace SpaceGame.Managers
             _textureBullet = Globals.Content.Load<Texture2D>("bullet");
             _textureAlienBullet = Globals.Content.Load<Texture2D>("alienBullet");
             _textureExplosion = Globals.Content.Load<Texture2D>("explosion4x4");
+            _textureLaser = Globals.Content.Load<Texture2D>("laser");
         }
 
         public static void Reset()
@@ -35,6 +37,11 @@ namespace SpaceGame.Managers
         public static void AddProjectileBullet(ProjectileData projectileData)
         {
             Projectiles.Add(new(_textureBullet, projectileData));
+        }
+
+        public static void AddProjectileLaser(ProjectileData projectileData)
+        {
+            Projectiles.Add(new(_textureLaser, projectileData));
         }
 
         public static void AddAlienProjectileBullet(ProjectileData projectileData)
@@ -77,20 +84,25 @@ namespace SpaceGame.Managers
 
         public static void Draw()
         {
-            Color color = Color.White; 
+            Color color = Color.White;
             foreach (var p in Projectiles)
             {
-                if (p.texture == _textureExplosion)
-                { 
-                    if (p.Lifespan <= 0.70) { color = Color.LightYellow; }
-                    if (p.Lifespan <= 0.60) { color = Color.Yellow; }
-                    if (p.Lifespan < 0.30) { color = Color.Orange; }
-                    if (p.Lifespan < 0.20) { color = Color.DarkOrange; }
-
-                    p.Draw(color * (p.Lifespan * 4)); 
-                }
-                else
+                if (p.ProjectileType.Equals("explosion"))
                 {
+                    if (p.Lifespan <= p.OriginalLifespan) { color = Color.LightYellow; }
+                    if (p.Lifespan <= p.OriginalLifespan / 1.2) { color = Color.Yellow; }
+                    if (p.Lifespan <= p.OriginalLifespan / 3) { color = Color.Orange; }
+                    if (p.Lifespan <= p.OriginalLifespan / 6) { color = Color.DarkOrange; }
+
+                    p.Draw(color * (p.Lifespan * 4));
+                }
+                if (p.ProjectileType.Equals("ringblast"))
+                {
+                    p.Draw(Color.DarkBlue);
+                }
+                if(p.ProjectileType.Equals("blaster"))
+                {
+
                     p.Draw(Color.White);
                 }
             }

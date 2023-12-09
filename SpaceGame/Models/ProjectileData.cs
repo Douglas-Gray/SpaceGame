@@ -13,6 +13,7 @@ namespace SpaceGame.Models
         public float Rotation { get; set; }
         public float Lifespan { get; set; }
         public int Speed { get; set; }
+        public string ProjectileType { get; set; }
 
     }
 }

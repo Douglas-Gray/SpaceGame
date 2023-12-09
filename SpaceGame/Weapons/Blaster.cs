@@ -34,10 +34,11 @@ namespace SpaceGame.Weapons
                 Position = player.Position,
                 Rotation = player.Rotation,
                 Lifespan = 2f,
-                Speed = 600
+                Speed = 600,
+                ProjectileType = "blaster"
             };
 
-            ProjectileManager.AddProjectileBullet(pd); 
+            ProjectileManager.AddProjectileLaser(pd); 
         }
 
     }

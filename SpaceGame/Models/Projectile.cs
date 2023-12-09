@@ -12,6 +12,8 @@ namespace SpaceGame.Models
     {
         public Vector2 Direction { get; set; }
         public float Lifespan { get; private set; }
+        public float OriginalLifespan { get; private set; }
+        public string ProjectileType { get; private set; }
 
 
         public Projectile(Texture2D texture, ProjectileData projectileData) : base(texture, projectileData.Position)
@@ -20,6 +22,8 @@ namespace SpaceGame.Models
             Rotation = projectileData.Rotation;
             Direction = new((float)Math.Cos(Rotation), (float)Math.Sin(Rotation)); 
             Lifespan = projectileData.Lifespan;
+            OriginalLifespan = Lifespan;
+            ProjectileType = projectileData.ProjectileType; 
         }
 
         public void Destroy()

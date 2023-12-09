@@ -85,8 +85,8 @@ namespace SpaceGame.Managers
             }
             else
             {
-                _player.Draw(Color.White);
                 ProjectileManager.Draw();
+                _player.Draw(Color.White);
                 AlienManager.Draw();
                 ScoreManager.Draw();
                 UIManager.Draw(_player);

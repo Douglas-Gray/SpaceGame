@@ -66,7 +66,8 @@ namespace SpaceGame.Models
                 Position = Position,
                 Rotation = Rotation - 2 * angleStep,
                 Lifespan = 0.70f,
-                Speed = 400
+                Speed = 400,
+                ProjectileType = "explosion"
             };
             for (int i = 0; i < 80; i++)
             {
