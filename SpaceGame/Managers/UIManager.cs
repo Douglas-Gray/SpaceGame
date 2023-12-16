@@ -26,7 +26,7 @@ namespace SpaceGame.Managers
 
             for (int i = 0; i < player.Weapon.Ammo; i++)
             {
-                Vector2 position = new(10, i * _bulletTexture.Height * 2);
+                Vector2 position = new(i * _bulletTexture.Height * 2, Globals.Bounds.Y - _bulletTexture.Height * 2);
                 Globals.SpriteBatch.Draw(_bulletTexture, position, null, weaponColour * 0.75f, 0, Vector2.Zero, 2, SpriteEffects.None, 1); 
             }
 
