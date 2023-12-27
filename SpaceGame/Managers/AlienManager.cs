@@ -67,7 +67,7 @@ namespace SpaceGame.Managers
             position.X = (int)_random.NextInt64(0, Globals.Bounds.X);
             position.Y = (int)_random.NextInt64(0, Globals.Bounds.Y);
 
-            while ( (position.X < player.Position.X + 70 && position.X > player.Position.X - 70) || (position.Y < player.Position.Y + 70 && position.Y > player.Position.Y - 70) )
+            while ( (position.X < player.Position.X + 150 && position.X > player.Position.X - 150) && (position.Y < player.Position.Y + 150 && position.Y > player.Position.Y - 150) )
             { 
                 position.X = (int)_random.NextInt64(0, Globals.Bounds.X);
                 position.Y = (int)_random.NextInt64(0, Globals.Bounds.Y);
