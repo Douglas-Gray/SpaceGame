@@ -31,7 +31,7 @@
 /processorParam:TextureFormat=Color
 /build:alienBullet.png
 
-#begin AlienGreen.png
+#begin alienLaser.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -41,7 +41,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:AlienGreen.png
+/build:alienLaser.png
 
 #begin alienShipRed.png
 /importer:TextureImporter
@@ -54,6 +54,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:alienShipRed.png
+
+#begin alienTurret.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:alienTurret.png
 
 #begin background.png
 /importer:TextureImporter
@@ -223,16 +235,4 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:SFX/explosionSfx.mp3
-
-#begin turret.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:turret.png
 

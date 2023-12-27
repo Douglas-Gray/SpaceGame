@@ -23,7 +23,7 @@ namespace SpaceGame.Managers
         public static void Init()
         {
             _textureAlienSeeker = Globals.Content.Load<Texture2D>("alienShipRed");
-            _textureAlienTurret = Globals.Content.Load<Texture2D>("turret");
+            _textureAlienTurret = Globals.Content.Load<Texture2D>("alienTurret");
             _spawnCooldown = 0.33f;
             _spawnTimeSeeker = _spawnCooldown;
             _spawnTimeTurret = _spawnCooldown; 

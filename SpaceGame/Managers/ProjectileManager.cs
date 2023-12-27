@@ -23,7 +23,7 @@ namespace SpaceGame.Managers
         public static void Init()
         {
             _textureBullet = Globals.Content.Load<Texture2D>("bullet");
-            _textureAlienBullet = Globals.Content.Load<Texture2D>("alienBullet");
+            _textureAlienBullet = Globals.Content.Load<Texture2D>("alienLaser");
             _textureExplosion = Globals.Content.Load<Texture2D>("explosion4x4");
             _textureLaser = Globals.Content.Load<Texture2D>("laser");
         }
