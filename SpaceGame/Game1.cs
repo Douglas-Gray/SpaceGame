@@ -9,7 +9,7 @@ namespace SpaceGame
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
-        private GameManager _gameManager; 
+        private GameManager _gameManager;
 
 
         public Game1()
@@ -44,6 +44,7 @@ namespace SpaceGame
                 Exit();
 
             Globals.Update(gameTime);
+
             _gameManager.Update();
 
             base.Update(gameTime);
@@ -53,11 +54,9 @@ namespace SpaceGame
         {
 
             GraphicsDevice.Clear(Color.Black);
-
-            _spriteBatch.Begin();
+           
             _gameManager.Draw();
-            _spriteBatch.End();
-
+           
             base.Draw(gameTime);
         }
     }

@@ -19,6 +19,7 @@ namespace SpaceGame.Models
             Position = spritePosition;
             Speed = 300;
             origin = new(spriteTexture.Width / 2, spriteTexture.Height / 2);
+
         }
 
         public virtual void Draw(Color color)

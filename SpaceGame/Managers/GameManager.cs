@@ -11,6 +11,9 @@ namespace SpaceGame.Managers
 
         private readonly Player _player;
         private readonly MenuManager menuManager = new();
+
+        private readonly BGManager _bgm = new(); 
+
         private bool gameStart = false;
         private int score;
 
@@ -25,6 +28,8 @@ namespace SpaceGame.Managers
             _player = new(Globals.Content.Load<Texture2D>("player"), 
                 new (Globals.Bounds.X / 2, Globals.Bounds.Y /2));
 
+            _bgm.AddLayer(new(Globals.Content.Load<Texture2D>("background"), 0.2f, 0.2f)); 
+            
             SoundManager.Init(); 
             ScoreManager.Init();
             ProjectileManager.Init();
@@ -59,8 +64,11 @@ namespace SpaceGame.Managers
 
         public void Update()
         {
+
             InputManager.Update();
             menuManager.Update();
+
+            _bgm.Update(100.0f);
 
             if (!gameStart)
             {
@@ -74,23 +82,31 @@ namespace SpaceGame.Managers
                 ProjectileManager.Update(AlienManager.Aliens);
 
                 if (_player.Dead) { score = ScoreManager.ReturnScore();  Restart(); }
-            }    
+            }
+
         }
 
         public void Draw()
         {
+
+            Globals.SpriteBatch.Begin();
+
             if (!gameStart) 
             {
                 menuManager.Draw(); 
             }
             else
             {
+                _bgm.Draw();
                 ProjectileManager.Draw();
                 _player.Draw(Color.White);
+                UIManager.Draw(_player);
+
                 AlienManager.Draw();
                 ScoreManager.Draw();
-                UIManager.Draw(_player);
-            }          
+            }
+
+            Globals.SpriteBatch.End(); 
         }
  
     }
