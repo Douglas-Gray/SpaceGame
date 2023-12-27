@@ -25,7 +25,7 @@ namespace SpaceGame.Managers
             menuManager.AddButton(new(Globals.Bounds.X / 2, Globals.Bounds.Y / 2), "Start").OnClick += Action;
             menuManager.AddMessage(new(Globals.Bounds.X / 2, Globals.Bounds.Y / 2 - 100), $"S P A C E  G A M E");
 
-            _player = new(Globals.Content.Load<Texture2D>("player"), 
+            _player = new(Globals.Content.Load<Texture2D>("playerShip"), 
                 new (Globals.Bounds.X / 2, Globals.Bounds.Y /2));
 
             _bgm.AddLayer(new(Globals.Content.Load<Texture2D>("background"), 0.5f, 0.5f));

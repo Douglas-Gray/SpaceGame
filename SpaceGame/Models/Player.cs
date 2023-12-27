@@ -57,7 +57,7 @@ namespace SpaceGame.Models
 
             foreach (var p in projectiles)
             {
-                if ((Position - p.Position).Length() < texture.Width - p.texture.Width)
+                if ((Position - p.Position).Length() < texture.Width / 2 - p.texture.Width)
                 {
                     Dead = true;
                     break;
