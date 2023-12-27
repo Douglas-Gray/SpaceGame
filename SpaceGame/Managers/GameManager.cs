@@ -28,8 +28,10 @@ namespace SpaceGame.Managers
             _player = new(Globals.Content.Load<Texture2D>("player"), 
                 new (Globals.Bounds.X / 2, Globals.Bounds.Y /2));
 
-            _bgm.AddLayer(new(Globals.Content.Load<Texture2D>("background"), 0.2f, 0.2f)); 
-            
+            _bgm.AddLayer(new(Globals.Content.Load<Texture2D>("background"), 0.5f, 0.5f));
+            _bgm.AddLayer(new(Globals.Content.Load<Texture2D>("planets"), 0.3f, 0.3f));
+
+
             SoundManager.Init(); 
             ScoreManager.Init();
             ProjectileManager.Init();
@@ -90,6 +92,7 @@ namespace SpaceGame.Managers
         {
 
             Globals.SpriteBatch.Begin();
+            _bgm.Draw();
 
             if (!gameStart) 
             {
@@ -97,7 +100,6 @@ namespace SpaceGame.Managers
             }
             else
             {
-                _bgm.Draw();
                 ProjectileManager.Draw();
                 _player.Draw(Color.White);
                 UIManager.Draw(_player);
